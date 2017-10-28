@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order Form</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+  <!--HTML page to display order page-->
+<body>
+    <h1>CZ3006 Net Centric Computing</h1>
+    <h5>Done by : Derrick Peh (U1621219F)</h5>
+    <br>
+    <hr>
+      <!--Alerts for invalid/empty inputs-->
+    <div class="alert alert-danger" id="invalid-alert" style="display: none; width: 80%">
+        <div>
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>Invalid Input Please only enter numerical whole
+            numbers</strong>
+        </div>
+    </div>
+    <div class="alert alert-danger" id="empty-alert" style="display: none; width: 80%">
+        <div>
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>Please fill in all fields</strong>
+        </div>
+    </div>
+      <!--Text fields for user input-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                 <!--Form to submit to server-->
+                <form action="/Assignment2/processorder.php" method="post" onsubmit="return allValidate();">
+                    <div class="form-group ">
+                        <label class="control-label " for="name"> Name </label>
+                        <input class="form-control" id="name" name="name" type="text" /> <span class="help-block" id="hint_name"> Enter your name </span>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label" for="apple"> Apple ( 69cents ) </label>
+                        <input class="form-control form-control-input" id="apple" name="apple" type="text" autocomplete="off" onkeypress="isNumber(this,event)" /> <span class="help-block" id="hint_number"> Enter Qty </span>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label" for="orange"> Orange ( 59cents ) </label>
+                        <input class="form-control form-control-input" id="orange" name="orange" type="text" autocomplete="off" onkeypress="isNumber(this,event)" /> <span class="help-block" id="hint_number1"> Enter Qty </span>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label" for="banana"> Banana ( 39cents ) </label>
+                        <input class="form-control form-control-input" id="banana" name="banana" type="text" autocomplete="off" onkeypress="isNumber(this,event)" /> <span class="help-block" id="hint_number2"> Enter Qty </span>
+                    </div>
+                    <br>
+                    <div class="card payment card col-md-5">
+                        <div class="form-group ">
+                            <div class="card-body">
+                                <h1>Payment</h1>
+                                <h5 class="card-title">Payment Method</h5>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" id="payment" name="payment" value="Visa" checked> Visa
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" id="payment" name="payment" value="Mastercard"> MasterCard
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" id="payment" name="payment" value="Discover"> Discover
+                                    </label>
+                                </div>
+                                <h4 class="control-label">Subtotal</h4>
+                                <input class="form-control form-control-input" id="totalCost" name="totalCost" type="text" required="true" value="" readonly="true" onfocus="this.blur()" />
+                                <br>
+                                <button class="btn btn-info " name="submit" type="submit">
+                                    Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</body>
+
+</html>
